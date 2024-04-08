@@ -115,7 +115,7 @@ alias pip=pip3
 alias pip-update-all="pip --disable-pip-version-check list --outdated --format=json | python -c 'import json, sys; print(\"\\n\".join([x[\"name\"] for x in json.load(sys.stdin)]))' | xargs -n1 pip install -U"
 
 # Misc
-alias update-all="brew update;brew upgrade;rustup update;cargo install cargo-update;cargo install-update -a;tldr --update;omz update"
+alias upall="brew update;brew upgrade;rustup update;cargo install cargo-update;cargo install-update -a;tldr --update;omz update"
 alias vmode="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":30064771129,\"HIDKeyboardModifierMappingDst\":30064771113}]}'"
 alias nmode="hidutil property --set '{\"UserKeyMapping\":[]}'"
 alias gdu="gdu-go"
