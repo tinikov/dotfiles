@@ -113,6 +113,7 @@ alias venv="source $VENV_PATH/bin/activate"
 alias python=python3
 alias pip=pip3
 alias pip-update-all="pip --disable-pip-version-check list --outdated --format=json | python -c 'import json, sys; print(\"\\n\".join([x[\"name\"] for x in json.load(sys.stdin)]))' | xargs -n1 pip install -U"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Misc
 alias upall="brew update;brew upgrade;rustup update;cargo install cargo-update;cargo install-update -a;tldr --update;omz update"
