@@ -13,6 +13,9 @@ ln -sf ~/dotfiles/Brewfile ~/Brewfile
 # GitHub
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 
+# pip
+ln -sf ~/dotfiles/pybase-req.txt ~/pybase-req
+
 # .config
 ## nvim
 if [[ -d ~/.config/nvim ]]; then
