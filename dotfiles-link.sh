@@ -18,11 +18,10 @@ ln -sf ~/dotfiles/pybase-req.txt ~/pybase-req
 
 # .config
 ## nvim
-if [[ -d ~/.config/nvim ]]; then
+if [[ -L ~/.config/nvim ]]; then
+	echo -e "\nNvim config already linked!"
+elif [[ -d ~/.config/nvim ]]; then
 	mv ~/.config/nvim ~/.config/nvim.bak
-	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
-elif [[ -L ~/.config/nvim ]]; then
-	rm -f ~/.config/nvim
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
 else
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
