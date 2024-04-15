@@ -13,17 +13,17 @@ ln -sf ~/dotfiles/Brewfile ~/Brewfile
 # GitHub
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 
-# python
-VENV_NAME="pybase"
-if [[ -d ~/.$VENV_NAME ]]; then
-	ln -sf ~/dotfiles/$VENV_NAME/bin/activate ~/.$VENV_NAME/bin/activate
-else
-	echo -e "\nVenv at ~/.$VENV_NAME not found!"
-fi
-
 # .config
 ## nvim
-ln -sf ~/dotfiles/config/nvim ~/.config/nvim
+if [[ -d ~/.config/nvim ]]; then
+	mv ~/.config/nvim ~/.config/nvim.bak
+	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
+elif [[ -L ~/.config/nvim ]]; then
+	rm -f ~/.config/nvim
+	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
+else
+	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
+fi
 
 ## broot
 if [[ -d ~/.config/broot ]]; then
