@@ -134,7 +134,7 @@ alias help="cat ~/dotfiles/motd"
 source ~/.config/broot/launcher/bash/br
 
 # toot auto completion
-eval "$(_TOOT_COMPLETE=zsh_source toot)"
+# eval "$(_TOOT_COMPLETE=zsh_source toot)"
 
 # Use venv at start
 venv
