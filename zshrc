@@ -34,7 +34,7 @@ export zsh_autosuggest_strategy=(match_prev_cmd completion)
 . $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # brew env configs
-export homebrew_no_env_hints=true
+export HOMEBREW_NO_ENV_HINTS=true
 
 # toot auto completion
 # eval "$(_TOOT_COMPLETE=zsh_source toot)"
