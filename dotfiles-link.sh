@@ -6,6 +6,7 @@ sudo ln -sf ~/dotfiles/motd /etc/motd
 
 # zshrc
 ln -sf ~/dotfiles/zshrc ~/.zshrc
+ln -sf ~/dotfiles/zsh_aliases ~/.zsh_aliases
 
 # Brewfile
 ln -sf ~/dotfiles/Brewfile ~/Brewfile
@@ -25,11 +26,4 @@ elif [[ -d ~/.config/nvim ]]; then
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
 else
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
-fi
-
-## broot
-if [[ -d ~/.config/broot ]]; then
-	ln -sf ~/dotfiles/config/broot/conf.hjson ~/.config/broot/conf.hjson
-else
-	echo -e "\nBroot not installed!"
 fi

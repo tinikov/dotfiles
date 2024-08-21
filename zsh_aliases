@@ -1,0 +1,35 @@
+# core
+export LSCOLORS=Gxfxcxdxbxegedabagacad
+alias ls='ls -GF'
+alias la='ls -a'
+alias ll='ls -lh'
+alias l='ls -alh'
+alias rm="rm -i"
+
+# cleanup
+alias tgclean="rm -rf ~/library/group\ containers/*.telegram/appstore/account-*/postbox/media"
+alias brclean="brew cleanup --prune=all;brew autoremove"
+
+# python
+PYVENV_PATH="~/.pybase"
+alias venv="source $PYVENV_PATH/bin/activate"
+alias python=python3
+alias pip=pip3
+alias pip-update-all="pip --disable-pip-version-check list --outdated --format=json | python -c 'import json, sys; print(\"\\n\".join([x[\"name\"] for x in json.load(sys.stdin)]))' | xargs -n1 pip install -u"
+export virtual_env_disable_prompt=1
+
+# misc
+alias upall="brew update;brew upgrade;rustup update;cargo install cargo-update;cargo install-update -a;tldr --update"
+alias vmode="hidutil property --set '{\"userkeymapping\":[{\"hidkeyboardmodifiermappingsrc\":30064771129,\"hidkeyboardmodifiermappingdst\":30064771113}]}'"
+alias nmode="hidutil property --set '{\"userkeymapping\":[]}'"
+alias gdu="gdu-go"
+
+# using proxy in terminal
+port=7890
+alias proxy-on="export https_proxy=http://127.0.0.1:$port http_proxy=http://127.0.0.1:$port all_proxy=socks5://127.0.0.1:$port"
+alias proxy-off="unset https_proxy http_proxy all_proxy"
+alias proxy-stat="env | grep -i proxy"
+
+# help
+alias help="cat ~/dotfiles/motd"
+
