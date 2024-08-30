@@ -36,8 +36,5 @@ export zsh_autosuggest_strategy=(match_prev_cmd completion)
 # brew env configs
 export HOMEBREW_NO_ENV_HINTS=true
 
-# toot auto completion
-# eval "$(_TOOT_COMPLETE=zsh_source toot)"
-
 # Load aliases
 . ~/.zsh_aliases

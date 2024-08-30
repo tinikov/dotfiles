@@ -23,7 +23,6 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        "",
         "___                __       ",
         " |  | |\\ | | |__/ /  \\ \\  /",
         " |  | | \\| | |  \\ \\__/  \\/",
