@@ -18,7 +18,6 @@ return {
         "lua_ls",
         "pylsp",
         "rust_analyzer",
-        "taplo",
       })
     end,
   },
