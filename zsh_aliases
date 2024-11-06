@@ -20,8 +20,8 @@ export virtual_env_disable_prompt=1
 
 # misc
 alias upall="brew update;brew upgrade;rustup update;cargo install cargo-update;cargo install-update -a"
-alias vmode="hidutil property --set '{\"userkeymapping\":[{\"hidkeyboardmodifiermappingsrc\":30064771129,\"hidkeyboardmodifiermappingdst\":30064771113}]}'"
-alias nmode="hidutil property --set '{\"userkeymapping\":[]}'"
+alias vmode="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":30064771129,\"HIDKeyboardModifierMappingDst\":30064771113}]}'"
+alias nmode="hidutil property --set '{\"UserKeyMapping\":[]}'"
 alias gdu="gdu-go"
 
 # using proxy in terminal

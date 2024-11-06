@@ -18,9 +18,12 @@ return {
       null_ls.builtins.formatting.clang_format.with {
         disabled_filetypes = { "c", "cpp", "cuda", "proto" },
       },
-      null_ls.builtins.formatting.prettier,
+      null_ls.builtins.formatting.djlint.with {
+        filetypes = { "html" },
+      },
       null_ls.builtins.formatting.shfmt,
       null_ls.builtins.formatting.stylua,
+      null_ls.builtins.formatting.taplo,
     }
     return config -- return final config table
   end,

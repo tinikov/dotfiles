@@ -18,6 +18,7 @@ return {
         "lua_ls",
         "pylsp",
         "rust_analyzer",
+        "taplo",
       })
     end,
   },
@@ -31,9 +32,9 @@ return {
         -- add more arguments for adding more null-ls sources
         "black",
         "clang-format",
-        "prettier",
         "shfmt",
         "stylua",
+        "djlint",
       })
     end,
   },
