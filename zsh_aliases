@@ -19,7 +19,7 @@ alias pip-update-all="pip --disable-pip-version-check list --outdated --format=j
 export virtual_env_disable_prompt=1
 
 # misc
-alias upall="brew update;brew upgrade;rustup update;cargo install cargo-update;cargo install-update -a"
+alias brup="brew update;brew upgrade"
 alias vmode="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":30064771129,\"HIDKeyboardModifierMappingDst\":30064771113}]}'"
 alias nmode="hidutil property --set '{\"UserKeyMapping\":[]}'"
 alias gdu="gdu-go"

@@ -3,6 +3,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=10000
 setopt autocd beep nomatch correct_all
+setopt share_history  # Sync history immediately
 unsetopt notify
 bindkey -e  # Emacs key binding
 

@@ -17,7 +17,6 @@ return {
         "jdtls",
         "lua_ls",
         "pylsp",
-        "rust_analyzer",
       })
     end,
   },
@@ -31,9 +30,9 @@ return {
         -- add more arguments for adding more null-ls sources
         "black",
         "clang-format",
+        "djlint",
         "shfmt",
         "stylua",
-        "djlint",
       })
     end,
   },

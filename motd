@@ -7,7 +7,7 @@ ___                __
 -----------------------------------
  Command Aliases
  ‣ Clean:     brclean tgclean
- ‣ Update:    upall
+ ‣ Update:    brup
  ‣ Capslock:  vmode nmode
  ‣ Proxy:     proxy-on proxy-off proxy-stat
 

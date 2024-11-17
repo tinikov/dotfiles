@@ -19,7 +19,7 @@ return {
         disabled_filetypes = { "c", "cpp", "cuda", "proto" },
       },
       null_ls.builtins.formatting.djlint.with {
-        filetypes = { "html" },
+        filetypes = { "html", "htmldjango" },
       },
       null_ls.builtins.formatting.shfmt,
       null_ls.builtins.formatting.stylua,
