@@ -18,7 +18,7 @@ ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/pybase-req.txt ~/pybase-req
 
 # plist
-ln -sf ~/dotfiles/brew-maintenance.sh ~/.brew-maintenance
+ln -sf ~/dotfiles/brew-maintenance.sh ~/brew-maintenance
 
 # .config
 ## nvim
