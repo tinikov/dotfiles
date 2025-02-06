@@ -17,6 +17,9 @@ ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 # pip
 ln -sf ~/dotfiles/pybase-req.txt ~/pybase-req
 
+# plist
+ln -sf ~/dotfiles/brew-maintenance.sh ~/.brew-maintenance
+
 # .config
 ## nvim
 if [[ -L ~/.config/nvim ]]; then
