@@ -7,12 +7,12 @@ alias l='ls -alh'
 alias rm="rm -i"
 
 # cleanup
-alias tgclean="rm -rf ~/Library/Group\ Containers/*.Telegram/appstore/account-*/postbox/media"
+# alias tgclean="rm -rf ~/Library/Group\ Containers/*.Telegram/appstore/account-*/postbox/media"
 alias brclean="brew cleanup --prune=all;brew autoremove"
 
 # python
-PYVENV_PATH="~/.pybase"
-alias venv="source $PYVENV_PATH/bin/activate"
+# PYVENV_PATH="~/.pybase"
+# alias venv="source $PYVENV_PATH/bin/activate"
 alias python=python3
 alias pip=pip3
 alias pip-update-all="pip --disable-pip-version-check list --outdated --format=json | python -c 'import json, sys; print(\"\\n\".join([x[\"name\"] for x in json.load(sys.stdin)]))' | xargs -n1 pip install --upgrade"
