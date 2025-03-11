@@ -17,7 +17,8 @@ ln -sf ~/dotfiles/pybase-req.txt ~/pybase-req
 # .config
 ## nvim
 if [[ -L ~/.config/nvim ]]; then
-	echo -e "\nNvim config already linked!"
+	echo
+	echo "Nvim config already linked!"
 elif [[ -d ~/.config/nvim ]]; then
 	mv ~/.config/nvim ~/.config/nvim.bak
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
@@ -27,7 +28,8 @@ fi
 
 ## fish
 if [[ -L ~/.config/fish ]]; then
-	echo -e "\nFish config already linked!"
+	echo
+	echo "Fish config already linked!"
 elif [[ -d ~/.config/fish ]]; then
 	mv ~/.config/fish ~/.config/fish.bak
 	ln -sf ~/dotfiles/config/fish ~/.config/fish
