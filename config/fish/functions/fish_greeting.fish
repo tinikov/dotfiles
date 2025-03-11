@@ -8,7 +8,7 @@ function fish_greeting
     
     set_color green
     set_color -o
-    echo "       $(date '+%Y-%m-%d %A %H:%M:%S')"
+    echo "       $(date '+%Y年%m月%d日 %A %H:%M')"
     set_color normal
     
     echo
