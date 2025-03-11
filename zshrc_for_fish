@@ -1,0 +1,6 @@
+export virtual_env_disable_prompt=1
+if [ "$ZSH_FULL_CONFIG" = "1" ]; then
+  source "$HOME/.zshrc.full"
+else
+  exec fish
+fi

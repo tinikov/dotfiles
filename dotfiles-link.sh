@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# motd
-echo -e "\nLinking to /etc/motd needs root permission..."
-sudo ln -sf ~/dotfiles/motd /etc/motd
-
 # zshrc
-ln -sf ~/dotfiles/zshrc ~/.zshrc
+ln -sf ~/dotfiles/zshrc_for_fish ~/.zshrc
+ln -sf ~/dotfiles/zshrc ~/.zshrc.full
 ln -sf ~/dotfiles/zsh_aliases ~/.zsh_aliases
 
 # Brewfile
@@ -17,9 +14,6 @@ ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 # pip
 ln -sf ~/dotfiles/pybase-req.txt ~/pybase-req
 
-# plist
-ln -sf ~/dotfiles/brew-maintenance.sh ~/brew-maintenance
-
 # .config
 ## nvim
 if [[ -L ~/.config/nvim ]]; then
@@ -29,4 +23,14 @@ elif [[ -d ~/.config/nvim ]]; then
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
 else
 	ln -sf ~/dotfiles/config/nvim ~/.config/nvim
+fi
+
+## fish
+if [[ -L ~/.config/fish ]]; then
+	echo -e "\nFish config already linked!"
+elif [[ -d ~/.config/fish ]]; then
+	mv ~/.config/fish ~/.config/fish.bak
+	ln -sf ~/dotfiles/config/fish ~/.config/fish
+else
+	ln -sf ~/dotfiles/config/fish ~/.config/fish
 fi
