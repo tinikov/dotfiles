@@ -5649,7 +5649,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>38</integer>
+			<integer>42</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -7071,12 +7071,14 @@
 				<dict>
 					<key>Action</key>
 					<integer>11</integer>
-					<key>Label</key>
-					<string></string>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
 					<key>Text</key>
 					<string>0x1b 0x08</string>
 					<key>Version</key>
-					<integer>1</integer>
+					<integer>2</integer>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
