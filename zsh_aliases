@@ -1,13 +1,15 @@
-# core
+# ls
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 alias ls='ls -GF'
 alias la='ls -a'
 alias ll='ls -lh'
 alias l='ls -alh'
+
+# rm
 alias rm="rm -i"
 
-# cleanup
-# alias tgclean="rm -rf ~/Library/Group\ Containers/*.Telegram/appstore/account-*/postbox/media"
+# brew
+alias brup="brew update;brew upgrade"
 alias brclean="brew cleanup --prune=all;brew autoremove"
 
 # python
@@ -16,20 +18,16 @@ alias brclean="brew cleanup --prune=all;brew autoremove"
 alias python=python3
 alias pip=pip3
 alias pip-update-all="pip --disable-pip-version-check list --outdated --format=json | python -c 'import json, sys; print(\"\\n\".join([x[\"name\"] for x in json.load(sys.stdin)]))' | xargs -n1 pip install --upgrade"
-export virtual_env_disable_prompt=1
 
-# misc
-alias brup="brew update;brew upgrade"
+# caps lock <--> esc
 alias vmode="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":30064771129,\"HIDKeyboardModifierMappingDst\":30064771113}]}'"
 alias nmode="hidutil property --set '{\"UserKeyMapping\":[]}'"
-alias gdu="gdu-go"
 
-# using proxy in terminal
+# proxy
 port=7890
 alias proxy-on="export https_proxy=http://127.0.0.1:$port http_proxy=http://127.0.0.1:$port all_proxy=socks5://127.0.0.1:$port"
 alias proxy-off="unset https_proxy http_proxy all_proxy"
 alias proxy-stat="env | grep -i proxy"
 
 # help
-alias help="cat ~/dotfiles/motd"
-
+# alias help="cat ~/dotfiles/motd"

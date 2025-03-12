@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # zshrc
-ln -sf ~/dotfiles/zshrc_for_fish ~/.zshrc
-ln -sf ~/dotfiles/zshrc ~/.zshrc.full
+ln -sf ~/dotfiles/zshrc ~/.zshrc
 ln -sf ~/dotfiles/zsh_aliases ~/.zsh_aliases
 
 # Brewfile
@@ -17,7 +16,6 @@ ln -sf ~/dotfiles/pybase-req.txt ~/pybase-req
 # .config
 ## nvim
 if [[ -L ~/.config/nvim ]]; then
-	echo
 	echo "Nvim config already linked!"
 elif [[ -d ~/.config/nvim ]]; then
 	mv ~/.config/nvim ~/.config/nvim.bak
@@ -28,7 +26,6 @@ fi
 
 ## fish
 if [[ -L ~/.config/fish ]]; then
-	echo
 	echo "Fish config already linked!"
 elif [[ -d ~/.config/fish ]]; then
 	mv ~/.config/fish ~/.config/fish.bak
@@ -36,3 +33,4 @@ elif [[ -d ~/.config/fish ]]; then
 else
 	ln -sf ~/dotfiles/config/fish ~/.config/fish
 fi
+echo

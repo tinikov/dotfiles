@@ -4275,6 +4275,10 @@
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_AF5C2B2E-B162-44DE-80E1-ABE6939DB19A_selection</key>
 	<integer>0</integer>
+	<key>NeverWarnAboutShortLivedSessions_B16BA76B-9D88-452F-AC75-FA025DC2028B</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_B16BA76B-9D88-452F-AC75-FA025DC2028B_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -5173,7 +5177,7 @@
 				<real>0.93725490196078431</real>
 			</dict>
 			<key>Custom Command</key>
-			<string>No</string>
+			<string>Custom Shell</string>
 			<key>Custom Directory</key>
 			<string>No</string>
 			<key>Custom Locale</key>
@@ -5639,7 +5643,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraCodeNF-Ret 16</string>
+			<string>FiraCodeNF-Ret 15</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>

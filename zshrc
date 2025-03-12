@@ -37,5 +37,8 @@ export zsh_autosuggest_strategy=(match_prev_cmd completion)
 # brew env configs
 export HOMEBREW_NO_ENV_HINTS=true
 
+# python env
+export virtual_env_disable_prompt=1
+
 # Load aliases
 . ~/.zsh_aliases
