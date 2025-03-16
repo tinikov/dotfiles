@@ -25,9 +25,9 @@ alias proxy-stat="env | grep -i proxy"
 
 function proxy-on
   set -l port 7890
-  set -xg https_proxy http://127.0.0.1:$port
-  set -xg http_proxy http://127.0.0.1:$port
-  set -xg all_proxy socks5://127.0.0.1:$port
+  set -gx https_proxy http://127.0.0.1:$port
+  set -gx http_proxy http://127.0.0.1:$port
+  set -gx all_proxy socks5://127.0.0.1:$port
 end
 
 function proxy-off
