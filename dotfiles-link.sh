@@ -5,13 +5,13 @@ ln -sf ~/dotfiles/zshrc ~/.zshrc
 ln -sf ~/dotfiles/zsh_aliases ~/.zsh_aliases
 
 # Brewfile
-ln -sf ~/dotfiles/Brewfile ~/Brewfile
+# ln -sf ~/dotfiles/Brewfile ~/Brewfile
 
 # GitHub
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 
 # pip
-ln -sf ~/dotfiles/pybase-req.txt ~/pybase-req
+# ln -sf ~/dotfiles/pybase-req.txt ~/pybase-req
 
 # .config
 ## nvim
