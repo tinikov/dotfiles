@@ -1,6 +1,8 @@
 # ls
 alias la='ls -a'
 alias l='ls -alh'
+
+# rm
 alias rm="rm -i"
 
 # brew
