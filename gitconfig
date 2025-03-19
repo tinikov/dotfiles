@@ -13,9 +13,9 @@
 
 	# sync
 	get = !git fetch --prune && git pull --rebase=merges && git submodule update --init --recursive
-  # publish = "!git push -u origin $(git branch --show-current)"
+	# publish = "!git push -u origin $(git branch --show-current)"
 
 	# log
-  recent = log -n 5  # recent 5
-  today = !git log --after="6am"
-  week = !git log --author $(git config user.email) --after="1.weeks" --date=short
+	recent = log -n 5  # recent 5
+	today = !git log --after="6am"
+	week = !git log --author $(git config user.email) --after="1.weeks" --date=short
