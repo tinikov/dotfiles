@@ -4,9 +4,11 @@
 
 [alias]
 	a = add
-	aa = add .
 	b = branch
 	c = commit
+	d = diff
+
+	aa = add .
 	st = status
 
 	# sync
@@ -17,5 +19,3 @@
   recent = log -n 5  # recent 5
   today = !git log --after="6am"
   week = !git log --author $(git config user.email) --after="1.weeks" --date=short
-[pull]
-	ff = only
