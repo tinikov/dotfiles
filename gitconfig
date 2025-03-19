@@ -1,3 +1,19 @@
 [user]
 	name = tinikov
 	email = i@tinikov.com
+
+[alias]
+	a = add
+	aa = add .
+	b = branch
+	c = commit
+	st = status
+
+	# sync
+	get = !git fetch --prune && git pull --rebase=preserve && git submodule update --init --recursive
+  put = !git commit --all && git push
+
+	# log
+  recent = log -n 5  # recent 5
+  today = !git log --after="6am"
+  week = !git log --author $(git config user.email) --after="1.weeks" --date=short
