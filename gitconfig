@@ -13,7 +13,7 @@
 
 	# sync
 	get = !git fetch --prune && git pull --rebase=merges && git submodule update --init --recursive
-  put = !git commit --all && git push
+  publish = "!git push -u origin $(git branch --show-current)"
 
 	# log
   recent = log -n 5  # recent 5
