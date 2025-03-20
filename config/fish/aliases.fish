@@ -9,10 +9,6 @@ alias rm="rm -i"
 alias brclean="brew cleanup --prune=all;brew autoremove"
 alias brup="brew update;brew upgrade"
 
-# python
-alias python=python3
-alias pip=pip3
-
 # caps lock <--> esc quick map
 function vmode
   sh -c "hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":30064771129,\"HIDKeyboardModifierMappingDst\":30064771113}]}'"
