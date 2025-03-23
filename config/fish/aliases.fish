@@ -1,6 +1,6 @@
 # ls
-alias la='ls -a'
-alias l='ls -alh'
+alias la="ls -a"
+alias l="ls -alh"
 
 # rm
 alias rm="rm -i"
@@ -8,6 +8,9 @@ alias rm="rm -i"
 # brew
 alias brclean="brew cleanup --prune=all;brew autoremove"
 alias brup="brew update;brew upgrade"
+
+# python
+alias python="python3.11"
 
 # caps lock <--> esc quick map
 function vmode
