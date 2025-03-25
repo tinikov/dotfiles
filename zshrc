@@ -7,7 +7,8 @@ setopt share_history  # Sync history immediately
 unsetopt notify
 bindkey -e  # Emacs key binding
 
-export LANG=zh_CN.UTF-8  # Locale
+# export LANG=zh_CN.UTF-8  # Locale
+export LANG=en_US.UTF-8 # Locale
 export EDITOR=nvim
 
 # Use Starship prompt

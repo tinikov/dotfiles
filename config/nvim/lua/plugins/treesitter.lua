@@ -10,7 +10,6 @@ return {
     opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
       -- add more arguments for adding more treesitter parsers
       "bash",
-      "bibtex",
       "c",
       "cpp",
       "gitignore",
@@ -18,15 +17,12 @@ return {
       "html",
       "java",
       "lua",
-      "latex",
       "make",
       "markdown",
       "markdown_inline",
       "python",
       "rust",
       "toml",
-      "vim",
-      "vimdoc",
       "yaml",
     })
   end,

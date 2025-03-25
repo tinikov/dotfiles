@@ -5,6 +5,7 @@ if status is-interactive
     source ~/.config/fish/aliases.fish
 
     set -gx EDITOR nvim
-    set -gx LANG zh_CN.UTF-8
+    # set -gx LANG zh_CN.UTF-8
+    set -gx LANG en_US.UTF-8
 end
 
