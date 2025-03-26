@@ -1,4 +1,3 @@
-tap "homebrew/bundle"
 brew "bear"
 brew "bottom"
 brew "fastfetch"
