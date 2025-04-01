@@ -5740,6 +5740,8 @@
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
+			<key>Session Close Undo Timeout</key>
+			<integer>10</integer>
 			<key>Set Local Environment Vars</key>
 			<integer>0</integer>
 			<key>Shortcut</key>

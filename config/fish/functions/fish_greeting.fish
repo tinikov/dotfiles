@@ -9,7 +9,7 @@ function fish_greeting
     # echo "       $(date '+%Y年%m月%d日 %A %H:%M')"
     
     set_color -io green
-    echo "$(date '+%Y年%m月%d日 %A %H:%M')"
+    echo "$(date '+%Y-%m-%d %A %H:%M')"
     set_color normal
     set_color -i bryellow
     echo "  \"THE FUTURE IS NOW\""
