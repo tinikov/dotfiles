@@ -9,11 +9,10 @@ bindkey -e  # Emacs key binding
 
 # export LANG=zh_CN.UTF-8  # Locale
 export LANG=en_US.UTF-8 # Locale
-export EDITOR=nvim
+export EDITOR=vim
 
 # Use Starship prompt
-## brew install starship first
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 # Auto-completion
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
@@ -29,14 +28,6 @@ fi
 
 autoload -Uz compinit
 compinit
-
-# zsh plugins
-## brew install zsh-autosuggestions first
-# . $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# export zsh_autosuggest_strategy=(match_prev_cmd completion)
-
-## brew install zsh-syntax-highlighting first
-# . $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # brew env configs
 export HOMEBREW_NO_ENV_HINTS=true
