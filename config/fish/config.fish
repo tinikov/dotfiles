@@ -8,5 +8,7 @@ if status is-interactive
     set -gx EDITOR nvim
     set -gx LANG en_US.UTF-8
     set -gx HOMEBREW_NO_ENV_HINTS 1
+
+    starship init fish | source
 end
 
