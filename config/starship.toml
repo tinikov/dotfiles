@@ -1,6 +1,6 @@
 add_newline = false
 
-format = '  $directory$all$character'
+format = '   $directory$all$character'
 
 [aws]
 symbol = "  "
