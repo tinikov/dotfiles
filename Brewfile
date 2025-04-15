@@ -1,5 +1,6 @@
 brew "bear"
 brew "bottom"
+brew "cursor"
 brew "fastfetch"
 brew "fish"
 brew "git"
