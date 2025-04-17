@@ -9,8 +9,11 @@ alias rm="rm -i"
 alias brclean="brew cleanup --prune=all;brew autoremove"
 alias brup="brew update;brew upgrade"
 
+# rust
+alias rsup="rustup update"
+
 # python
-alias python="python3.11"
+# alias python="python3.11"
 
 # caps lock <--> esc quick map
 function vmode
