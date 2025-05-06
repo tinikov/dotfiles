@@ -27,6 +27,10 @@ end
 # Proxy settings
 alias proxy-stat="env | grep -i proxy"
 
+function proxy-test
+  curl -v "https://www.google.com" --proxy "https://light.ppfarm.boats" --proxy-user 'taito:tatazhu1999' 2>&1 >/dev/null | grep -w '200'
+end
+
 function proxy-on
   set -l port 7890
   set -gx https_proxy http://127.0.0.1:$port

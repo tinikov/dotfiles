@@ -37,3 +37,5 @@ export virtual_env_disable_prompt=1
 
 # Load aliases
 . ~/.zsh_aliases
+
+. "$HOME/.local/bin/env"
