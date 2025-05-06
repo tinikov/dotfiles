@@ -46,17 +46,57 @@ create_symlink() {
 
 # Main function
 main() {
-    log "info" "Starting dotfiles setup..."
+    log "info" "Starting initialization..."
 
-    # zsh configuration
+    # Zsh configuration
     create_symlink "$DOTFILES_DIR/zshrc" "$HOME/.zshrc" "$HOME/.dotfiles_backup"
     create_symlink "$DOTFILES_DIR/zsh_aliases" "$HOME/.zsh_aliases" "$HOME/.dotfiles_backup"
 
     # Git configuration
     create_symlink "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig" "$HOME/.dotfiles_backup"
 
+    # Init Homebrew
+    read -p "Install homebrew? (y/N) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        echo >> $HOME/.zprofile
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+        log "info" "Homebrew installation completed!"
+
+        # Minimal brew bundle
+        read -p "Minimal installation of needed apps? (y/N) " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            log "info" "Use brew bundle to install apps..."
+            brew tap Homebrew/bundle
+            brew bundle --file="$DOTFILES_DIR/Brewfile-minimal"
+            log "info" "brew bundle installation completed!"
+        fi
+    fi
+
+    # Fish configuration
+    create_symlink "$DOTFILES_DIR/config/fish" "$HOME/.config/fish" "$HOME/.dotfiles_backup"
+
     # Starship configuration
     create_symlink "$DOTFILES_DIR/config/starship.toml" "$HOME/.config/starship.toml" "$HOME/.dotfiles_backup"
+
+    # Ask to install uv
+    read -p "Install uv (python package manager)? (y/N) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        log "info" "uv installation completed!"
+    fi
+
+    # Ask to install fnm
+    read -p "Install fnm (node version manager)? (y/N) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        curl -fsSL https://fnm.vercel.app/install | bash
+        log "info" "fnm installation completed!"
+    fi
 
     # Neovim configuration
     if [[ ! -L "$HOME/.config/nvim/lua" ]]; then
@@ -75,10 +115,7 @@ main() {
         log "info" "Symlink already exists: $HOME/.config/nvim/lua"
     fi
 
-    # Fish configuration
-    create_symlink "$DOTFILES_DIR/config/fish" "$HOME/.config/fish" "$HOME/.dotfiles_backup"
-
-    log "info" "Dotfiles setup completed!"
+    log "info" "Initialization completed! Restart your terminal to apply changes."
 }
 
 # Execute main function
