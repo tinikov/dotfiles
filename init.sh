@@ -64,15 +64,15 @@ main() {
         echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
         eval "$(/opt/homebrew/bin/brew shellenv)"
         log "info" "Homebrew installation completed!"
+    fi
 
-        # Minimal brew bundle
-        read -p "Minimal installation of needed apps? (y/N) " -n 1 -r
-        echo
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
-            log "info" "Use brew bundle to install apps..."
-            brew bundle --file="$DOTFILES_DIR/Brewfile-minimal"
-            log "info" "brew bundle installation completed!"
-        fi
+    # minimal brew bundle
+    read -p "minimal installation of needed apps? (y/n) " -n 1 -r
+    echo
+    if [[ $reply =~ ^[yy]$ ]]; then
+        log "info" "use brew bundle to install apps..."
+        brew bundle --file="$dotfiles_dir/brewfile-minimal"
+        log "info" "brew bundle installation completed!"
     fi
 
     # Fish configuration
