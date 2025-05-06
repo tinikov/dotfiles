@@ -66,13 +66,12 @@ main() {
         log "info" "Homebrew installation completed!"
     fi
 
-    # minimal brew bundle
-    read -p "minimal installation of needed apps? (y/n) " -n 1 -r
+    # Minimal brew bundle
+    read -p "Minimal installation of needed apps? (y/N) " -n 1 -r
     echo
-    if [[ $reply =~ ^[yy]$ ]]; then
-        log "info" "use brew bundle to install apps..."
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
         brew bundle --file="$dotfiles_dir/brewfile-minimal"
-        log "info" "brew bundle installation completed!"
+        log "info" "Brew bundle installation completed!"
     fi
 
     # Fish configuration
