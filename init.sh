@@ -70,7 +70,6 @@ main() {
         echo
         if [[ $REPLY =~ ^[Yy]$ ]]; then
             log "info" "Use brew bundle to install apps..."
-            brew tap Homebrew/bundle
             brew bundle --file="$DOTFILES_DIR/Brewfile-minimal"
             log "info" "brew bundle installation completed!"
         fi
