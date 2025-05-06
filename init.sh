@@ -70,7 +70,7 @@ main() {
     read -p "Minimal installation of needed apps? (y/N) " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        brew bundle --file="$dotfiles_dir/brewfile-minimal"
+        brew bundle --file="$DOTFILES_DIR/brewfile-minimal"
         log "info" "Brew bundle installation completed!"
     fi
 
