@@ -98,6 +98,14 @@ main() {
         log "info" "fnm installation completed!"
     fi
 
+    # Ask to install rustup
+    read -p "Install rustup (rust manager)? (y/N) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        log "info" "rustup installation completed!"
+    fi
+
     # Neovim configuration
     if [[ ! -L "$HOME/.config/nvim/lua" ]]; then
         # Backup existing configuration (if exists)

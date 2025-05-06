@@ -1,3 +1,4 @@
+
 # fnm
 set FNM_PATH "/opt/homebrew/Cellar/fnm"
 if [ -d "$FNM_PATH" ]
