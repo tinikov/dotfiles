@@ -39,3 +39,10 @@ export virtual_env_disable_prompt=1
 . ~/.zsh_aliases
 
 . "$HOME/.local/bin/env"
+
+# fnm
+FNM_PATH="/Users/tinikov/Library/Application Support/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/Users/tinikov/Library/Application Support/fnm:$PATH"
+  eval "`fnm env`"
+fi
