@@ -8,8 +8,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
+  -- { import = "astrocommunity.colorscheme.catppuccin" },
+  -- { import = "astrocommunity.motion.marks-nvim" },
   -- import/override with your plugins folder
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.motion.marks-nvim" },
-  -- { import = "astrocommunity.project.project-nvim" },
 }
