@@ -19,7 +19,7 @@ function fish_greeting
     set_color normal
     echo " ‣ capslock <-> esc:  "(set_color -io cyan)"vmode nmode"(set_color normal)
     echo " ‣ brew maintenance:  "(set_color -io cyan)"brup brclean"(set_color normal)
-    echo " ‣ proxy:  "(set_color -io cyan)"proxy-on proxy-off proxy-stat"(set_color normal)
+    echo " ‣ proxy:  "(set_color -io cyan)"proxy-(on/off/stat/test)"(set_color normal)
     set_color normal
     echo
 end
