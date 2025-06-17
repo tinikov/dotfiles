@@ -19,20 +19,22 @@ return {
 
   -- customize alpha options
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        -- "___                __       ",
-        -- " |  | |\\ | | |__/ /  \\ \\  /",
-        -- " |  | | \\| | |  \\ \\__/  \\/",
-        " _|_ o ._  o |\\ |    o ._ _ ",
-        "  |_ | | | | | \\| \\/ | | | |",
-        "",
-        "         - 137.019 -",
-      }
-      return opts
-    end,
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
+            -- "___                __       ",
+            -- " |  | |\\ | | |__/ /  \\ \\  /",
+            -- " |  | | \\| | |  \\ \\__/  \\/",
+            " _|_ o ._  o |\\ |    o ._ _ ",
+            "  |_ | | | | | \\| \\/ | | | |",
+            "",
+            "- 137.019 -",
+          }, "\n"),
+        },
+      },
+    },
   },
 
   -- You can disable default plugins as follows:
