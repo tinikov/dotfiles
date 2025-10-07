@@ -5052,7 +5052,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>100</integer>
+			<integer>120</integer>
 			<key>Command</key>
 			<string>/opt/homebrew/bin/fish</string>
 			<key>Cursor Boost (Dark)</key>
