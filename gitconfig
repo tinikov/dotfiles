@@ -20,3 +20,12 @@
 	recent = log -n 5  # recent 5
 	today = !git log --after="6am"
 	week = !git log --author $(git config user.email) --after="1.weeks" --date=short
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
