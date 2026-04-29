@@ -12,9 +12,6 @@ alias brup="brew update;brew upgrade"
 # rust
 alias rsup="rustup update"
 
-# python
-# alias python="python3.11"
-
 # caps lock <--> esc quick map
 function vmode
   sh -c "hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":30064771129,\"HIDKeyboardModifierMappingDst\":30064771113}]}'"
@@ -27,9 +24,9 @@ end
 # Proxy settings
 alias proxy-stat="env | grep -i proxy"
 
-function proxy-test
-  curl -v "https://www.google.com" --proxy "https://light.ppfarm.boats" --proxy-user 'taito:tatazhu1999' 2>&1 >/dev/null | grep -w '200'
-end
+# function proxy-test
+#   curl -v "https://www.google.com" --proxy "https://light.ppfarm.boats" --proxy-user 'taito:tatazhu1999' 2>&1 >/dev/null | grep -w '200'
+# end
 
 function proxy-on
   set -l port 7890
