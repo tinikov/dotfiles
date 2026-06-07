@@ -4293,6 +4293,8 @@
 	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>524576</integer>
+	<key>NeverBlockSystemShutdown</key>
+	<true/>
 	<key>NeverWarnAboutShortLivedSessions_AF5C2B2E-B162-44DE-80E1-ABE6939DB19A</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_AF5C2B2E-B162-44DE-80E1-ABE6939DB19A_selection</key>
@@ -7844,6 +7846,8 @@
 			<string>/Users/tinikov</string>
 		</dict>
 	</array>
+	<key>OnlyWhenMoreTabs</key>
+	<true/>
 	<key>OpenBookmark</key>
 	<false/>
 	<key>PointerActions</key>
@@ -7879,6 +7883,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>PromptOnQuit</key>
+	<true/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>StatusBarPosition</key>
