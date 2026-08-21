@@ -5387,7 +5387,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>105</integer>
+			<integer>125</integer>
 			<key>Command</key>
 			<string>/opt/homebrew/bin/fish</string>
 			<key>Cursor Boost (Dark)</key>
@@ -5573,7 +5573,7 @@
 			<key>Has Hotkey</key>
 			<false/>
 			<key>Horizontal Spacing</key>
-			<real>1</real>
+			<real>0.90000000000000002</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>
@@ -5714,7 +5714,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MapleMono-NF-CN-Medium 17</string>
+			<string>MapleMono-NF-CN-Medium 16</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
