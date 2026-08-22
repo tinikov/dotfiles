@@ -1,26 +1,32 @@
 -- Customize Treesitter
+-- nvim-treesitter only downloads parsers now; everything else lives in AstroCore
 
 ---@type LazySpec
 return {
-  "nvim-treesitter/nvim-treesitter",
+  "AstroNvim/astrocore",
+  ---@type AstroCoreOpts
   opts = function(_, opts)
-    -- add more things to the ensure_installed table protecting against community packs modifying it
-    opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-      -- add more arguments for adding more treesitter parsers
-      "bash",
-      "c",
-      "cpp",
-      "gitignore",
+    local astrocore = require "astrocore"
+    opts.treesitter = astrocore.extend_tbl(opts.treesitter, { highlight = true, indent = true })
+    opts.treesitter.ensure_installed = astrocore.list_insert_unique(opts.treesitter.ensure_installed, {
+      "css",
       "go",
+      "gomod",
+      "gosum",
+      "gowork",
       "html",
-      "java",
-      "lua",
-      "make",
+      "javascript",
+      "jsdoc",
+      "json",
+      "jsonc",
       "markdown",
       "markdown_inline",
       "python",
       "rust",
+      "scss",
       "toml",
+      "tsx",
+      "typescript",
       "yaml",
     })
   end,
