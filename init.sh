@@ -72,6 +72,30 @@ setup_git_identity() {
     log info "Git identity written to $local_config"
 }
 
+# Ghostty's automatic shell integration needs bash 4+, but macOS ships 3.2
+setup_brew_bash() {
+    local brew_bash current_shell
+    brew_bash="$(brew --prefix)/bin/bash"
+
+    if [[ ! -x "$brew_bash" ]]; then
+        log info "Installing bash via Homebrew..."
+        brew install bash
+    fi
+
+    if ! grep -qx "$brew_bash" /etc/shells; then
+        log info "Adding $brew_bash to /etc/shells (sudo required)"
+        echo "$brew_bash" | sudo tee -a /etc/shells > /dev/null
+    fi
+
+    current_shell=$(dscl . -read "/Users/$USER" UserShell | awk '{print $2}')
+    if [[ "$current_shell" != "$brew_bash" ]]; then
+        log info "Changing default shell to $brew_bash"
+        chsh -s "$brew_bash"
+    else
+        log info "Default shell is already $brew_bash"
+    fi
+}
+
 install_homebrew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo >> "$HOME/.zprofile"
@@ -83,6 +107,7 @@ main() {
     log info "Starting initialization..."
 
     create_symlink "$DOTFILES_DIR/zshrc" "$HOME/.zshrc"
+    create_symlink "$DOTFILES_DIR/bash_profile" "$HOME/.bash_profile"
     create_symlink "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig"
     setup_git_identity
     create_symlink "$DOTFILES_DIR/config/fish" "$HOME/.config/fish"
@@ -100,6 +125,13 @@ main() {
         if confirm "Minimal installation of needed apps?"; then
             brew bundle --file="$DOTFILES_DIR/Brewfile-minimal"
             log info "Brew bundle installation completed!"
+        fi
+
+        # Force brew bash as default shell so Ghostty shell integration works
+        if command -v brew &> /dev/null; then
+            setup_brew_bash
+        else
+            log warn "Homebrew not found; skipping default shell setup"
         fi
     fi
 

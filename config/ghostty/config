@@ -1,1 +1,36 @@
-theme = Selenized Light
+# Theme
+theme = Nord Wave
+
+# Font
+font-family = "Maple Mono NF CN"
+font-size = 17
+font-thicken = true
+adjust-cell-height = 1
+
+# Window
+window-save-state = always
+macos-titlebar-style = tabs
+window-padding-x = 8
+window-padding-y = 8
+unfocused-split-opacity = 0.7
+
+# Background
+background-opacity = 0.85
+background-blur = 20
+
+# Behavior
+confirm-close-surface = false
+scrollback-limit = 10000000
+window-new-tab-position = end
+
+# Keybindings
+keybind = global:opt+space=toggle_visibility
+keybind = super+shift+t=prompt_surface_title
+
+# macOS
+macos-option-as-alt = true
+macos-icon = retro
+quick-terminal-animation-duration = 0.08
+
+# Default shell
+shell-integration = fish
