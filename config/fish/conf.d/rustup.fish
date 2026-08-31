@@ -1,6 +1,4 @@
-
 # rustup
-set CARGO_PATH "$HOME/.cargo"
-if [ -d "$CARGO_PATH" ]
-  source "$CARGO_PATH/env.fish"
+if [ -d "$HOME/.cargo" ]
+  source "$HOME/.cargo/env.fish"
 end

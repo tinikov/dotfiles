@@ -1,6 +1,10 @@
-[user]
-	name = tinikov
-	email = i@tinikov.com
-
 [init]
 	defaultBranch = main
+
+# Refuse to commit if no identity is set (no hostname-based guessing)
+[user]
+	useConfigOnly = true
+
+# Machine-specific identity (user.name / user.email), written by init.sh
+[include]
+	path = ~/.gitconfig.local

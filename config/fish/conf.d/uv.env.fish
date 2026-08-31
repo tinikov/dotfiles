@@ -1,7 +1,5 @@
-
-# PATH add .local
-set UV_BIN "$HOME/.local/bin/uv"
-if [ -e "$UV_BIN" ]
+# uv: PATH + completions
+if [ -e "$HOME/.local/bin/uv" ]
   source "$HOME/.local/bin/env.fish"
   uv generate-shell-completion fish | source
   uvx --generate-shell-completion fish | source

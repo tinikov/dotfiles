@@ -5,6 +5,11 @@ alias l="ls -alh"
 # rm
 alias rm="rm -i"
 
+# bash: use brew's (the system one is ancient 3.2)
+if test -x /opt/homebrew/bin/bash
+  alias bash /opt/homebrew/bin/bash
+end
+
 # brew
 alias brclean="brew cleanup --prune=all;brew autoremove"
 alias brup="brew update;brew upgrade"
@@ -12,21 +17,19 @@ alias brup="brew update;brew upgrade"
 # rust
 alias rsup="rustup update"
 
-# caps lock <--> esc quick map
-function vmode
-  sh -c "hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":30064771129,\"HIDKeyboardModifierMappingDst\":30064771113}]}'"
-end
+# caps lock <--> esc quick map (macOS only)
+if test (uname) = Darwin
+  function vmode
+    sh -c "hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":30064771129,\"HIDKeyboardModifierMappingDst\":30064771113}]}'"
+  end
 
-function nmode
-  sh -c "hidutil property --set '{\"UserKeyMapping\":[]}'"
+  function nmode
+    sh -c "hidutil property --set '{\"UserKeyMapping\":[]}'"
+  end
 end
 
 # Proxy settings
 alias proxy-stat="env | grep -i proxy"
-
-# function proxy-test
-#   curl -v "https://www.google.com" --proxy "https://light.ppfarm.boats" --proxy-user 'taito:tatazhu1999' 2>&1 >/dev/null | grep -w '200'
-# end
 
 function proxy-on
   set -l port 7890

@@ -5,4 +5,5 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.motion.nvim-surround" },
 }
