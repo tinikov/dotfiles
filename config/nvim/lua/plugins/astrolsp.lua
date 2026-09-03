@@ -9,8 +9,9 @@ return {
     formatting = {
       format_on_save = { enabled = false },
       -- formatting is handled by ruff (Python), gopls (Go), rust_analyzer (Rust),
-      -- stylua (Lua) and prettierd (web), so the servers below stay out of the way
-      disabled = { "basedpyright", "cssls", "html", "jsonls", "lua_ls", "vtsls" },
+      -- stylua (Lua) and prettierd (web), so the servers below stay out of the way;
+      -- eslint keeps its diagnostics and code actions but must not format on top of prettierd
+      disabled = { "basedpyright", "cssls", "eslint", "html", "jsonls", "lua_ls", "vtsls" },
       timeout_ms = 1000,
     },
     ---@diagnostic disable: missing-fields

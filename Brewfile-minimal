@@ -1,5 +1,6 @@
 brew "bash"
 brew "fastfetch"
+brew "fd"
 brew "fish"
 brew "git"
 brew "neovim"

@@ -9,17 +9,10 @@ return {
     features = {
       large_buf = { size = 1024 * 500, lines = 10000 },
     },
-    diagnostics = {
-      virtual_text = true,
-      underline = true,
-    },
     options = {
       opt = {
         colorcolumn = "120",
-        number = true,
-        relativenumber = true,
         signcolumn = "auto",
-        spell = false,
         wrap = true,
       },
     },
@@ -33,7 +26,6 @@ return {
           function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
           desc = "Previous buffer",
         },
-        ["<Leader>b"] = { desc = "Buffers" },
         ["<Leader>bD"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
