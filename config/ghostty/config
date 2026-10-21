@@ -2,7 +2,8 @@
 # auto-update-channel = tip
 
 # Theme
-theme = Nord Wave
+theme = Dayfox
+# theme = GitLab Light
 
 # Font
 font-family = "Maple Mono NF CN"
@@ -18,8 +19,8 @@ window-padding-y = 8
 unfocused-split-opacity = 0.7
 
 # Background
-background-opacity = 0.85
-background-blur = 20
+background-opacity = 0.9
+background-blur = 15
 
 # Behavior
 confirm-close-surface = false

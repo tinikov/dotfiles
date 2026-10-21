@@ -6,7 +6,7 @@ return {
   "AstroNvim/astroui",
   ---@type AstroUIOpts
   opts = {
-    colorscheme = "astrodark",
+    colorscheme = "dayfox", -- 见 plugins/nightfox.lua
     icons = {
       LSPLoading1 = "⠋",
       LSPLoading2 = "⠙",

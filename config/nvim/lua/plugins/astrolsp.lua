@@ -12,7 +12,6 @@ return {
       -- stylua (Lua) and prettierd (web), so the servers below stay out of the way;
       -- eslint keeps its diagnostics and code actions but must not format on top of prettierd
       disabled = { "basedpyright", "cssls", "eslint", "html", "jsonls", "lua_ls", "vtsls" },
-      timeout_ms = 1000,
     },
     ---@diagnostic disable: missing-fields
     config = {
@@ -39,11 +38,6 @@ return {
             check = { command = "clippy" },
           },
         },
-      },
-    },
-    mappings = {
-      n = {
-        gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
       },
     },
     on_attach = function(client)

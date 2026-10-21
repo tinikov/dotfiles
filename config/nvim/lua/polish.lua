@@ -1,2 +1,0 @@
--- Runs last in the setup process. Plain Lua for anything that does not fit the
--- configuration files above, such as custom filetypes.
