@@ -1,0 +1,13 @@
+# Template for ~/.bashrc: machine-local bash settings, sourced by ~/.bash_profile
+# right before it switches to fish. Copy only what this machine needs.
+# Don't `exec fish` here; ~/.bash_profile does that after the environment is set.
+
+# ---------- Linux ----------
+# RHEL/Fedora: keep the system defaults (Debian/Ubuntu read /etc/bash.bashrc by themselves)
+[ -f /etc/bashrc ] && . /etc/bashrc
+
+# HPC: load modules here; fish inherits the resulting environment.
+# module load BaseCPU > /dev/null 2>&1
+
+# ---------- macOS ----------
+# Usually nothing: ~/.bash_profile already sets up Homebrew, PATH, EDITOR and LANG.

@@ -1,0 +1,5 @@
+# Template for ~/.gitconfig.local, included by gitconfig. init.sh writes it when it
+# can ask for the values; otherwise copy this file and fill it in.
+[user]
+	name = Your Name
+	email = you@example.com

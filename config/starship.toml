@@ -27,6 +27,9 @@ style = "bright-black"
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
+# The six values below are a zero-width space (U+200B), not empty strings: each kind of
+# change renders nothing itself, but makes the (...) group non-empty, so any change
+# shows exactly one "*". Replacing them with "" would hide the "*".
 conflicted = "​"
 untracked = "​"
 modified = "​"

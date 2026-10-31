@@ -1,21 +1,15 @@
-if test -x /opt/homebrew/bin/brew
-    eval (/opt/homebrew/bin/brew shellenv)
-end
+# Environment variables (PATH, EDITOR, LANG, ...) come from ~/.bash_profile:
+# every interactive session starts as a login bash that execs fish.
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-    source ~/.config/fish/aliases.fish
+    source $__fish_config_dir/aliases.fish
 
-    set -gx EDITOR nvim
-    set -gx LANG en_US.UTF-8
-    set -gx HOMEBREW_NO_ENV_HINTS 1
-
-    if type -q starship
+    if command -q starship
         starship init fish | source
     end
 end
 
-# Machine-local config (untracked, see .gitignore)
-if test -f ~/.config/fish/local.fish
-    source ~/.config/fish/local.fish
+# Machine-local config, kept outside the repo (template: examples/fish.local.fish)
+if test -f ~/.config/fish.local.fish
+    source ~/.config/fish.local.fish
 end

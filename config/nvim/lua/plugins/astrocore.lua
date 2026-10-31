@@ -40,8 +40,8 @@ return {
         ["<"] = "<gv",
         [">"] = ">gv",
         -- move the selected lines up and down
-        J = ":move '>+1<cr><cr>gv",
-        K = ":move '<-2<cr><cr>gv",
+        J = ":move '>+1<cr>gv",
+        K = ":move '<-2<cr>gv",
       },
       t = {
         ["<esc>"] = "<C-\\><C-n>",

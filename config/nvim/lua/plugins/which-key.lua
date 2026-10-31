@@ -1,4 +1,5 @@
--- which-key 默认（classic 预设）不画边框，靠浮窗底色区分；透明背景下补上圆角线框
+-- which-key's classic preset draws no border and relies on the float background,
+-- which the transparent theme removes; add a rounded border instead
 
 ---@type LazySpec
 return {

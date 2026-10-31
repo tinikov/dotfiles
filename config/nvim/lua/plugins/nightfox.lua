@@ -4,7 +4,7 @@ return {
   lazy = true,
   opts = {
     options = { transparent = true },
-    -- 去掉状态栏、标签栏和浮窗的底色；窗口分隔线与浮窗边框同色
+    -- no background on the status line, tab line and floats; window separators match float borders
     groups = {
       all = {
         StatusLine = { bg = "NONE" },
