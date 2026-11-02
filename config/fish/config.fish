@@ -6,6 +6,10 @@ if status is-interactive
 
     if command -q starship
         starship init fish | source
+        # The time is on starship's first line (starship.toml); its right prompt would be
+        # empty but still start another starship process on every prompt
+        function fish_right_prompt
+        end
     end
 end
 

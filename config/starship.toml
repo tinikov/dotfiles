@@ -1,19 +1,110 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+add_newline = false
+
+# Bracketed segments joined by ─ (after Kali's prompt), framed by ╭─ and ╰─. $fill pushes
+# the environment, duration and time to the right end of the first line (right_format would
+# put them on the input line). The (...) groups and the modules on the right draw their own
+# brackets, so a segment with nothing to show leaves no empty [].
 format = """
-$battery\
-$username\
-$hostname\
-$directory\
-$git_branch\
-$git_state\
-$git_status\
+[╭─](frame)\
+([\\[](frame)$username$hostname[\\]─](frame))\
+[\\[](frame)$directory[\\]](frame)\
+([─\\[](frame)$git_branch$git_state$git_status[\\]](frame))\
+$fill\
+$buf$bun$c$cmake$cobol$conda$crystal$daml$dart$deno$docker_context$dotnet\
+$elixir$elm$erlang$fortran$gleam$golang$gradle$guix_shell$haskell$haxe$helm$java\
+$julia$kotlin$lua$maven$meson$mojo$nim$nix_shell$nodejs$ocaml$odin$opa\
+$perl$php$pixi$pulumi$purescript$python$quarto$raku$red$rlang$ruby$rust\
+$scala$solidity$spack$swift$terraform$typst$vagrant$vlang$xmake$zig\
+$aws$azure$gcloud$kubernetes$openstack$nats$container$singularity$netns\
 $cmd_duration\
+([─\\[](frame)$time$battery[\\]](frame))\
 $line_break\
-$python\
+[╰─](frame)\
 $character"""
 
+palette = "dayfox"
+
+# Languages and tools, shown only in matching projects: nerd icon in the tool's color,
+# version in gray. Icons from starship's nerd-font-symbols preset. These inline tables
+# must stay above the first [section] header, or TOML would put them inside it.
+buf = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+bun = { symbol = " ", style = "red", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+c = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+cmake = { symbol = " ", style = "green", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+cobol = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+conda = { symbol = " ", style = "green", format = '[─\[](frame)[$symbol]($style)[$environment](bright-black)[\]](frame)' }
+crystal = { symbol = " ", style = "black", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+daml = { style = "cyan", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+dart = { symbol = " ", style = "cyan", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+deno = { symbol = " ", style = "black", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+docker_context = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[$context](bright-black)[\]](frame)' }
+dotnet = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+elixir = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+elm = { symbol = " ", style = "cyan", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+erlang = { symbol = " ", style = "red", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+fortran = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+gleam = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+golang = { symbol = " ", style = "cyan", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+gradle = { symbol = " ", style = "cyan", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+guix_shell = { symbol = " ", style = "yellow", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+haskell = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+haxe = { symbol = " ", style = "yellow", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+helm = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+java = { symbol = " ", style = "red", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+julia = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+kotlin = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+lua = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+maven = { symbol = " ", style = "red", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+meson = { symbol = "󰔷 ", style = "blue", format = '[─\[](frame)[$symbol]($style)[$project](bright-black)[\]](frame)' }
+mojo = { symbol = "󰈸 ", style = "red", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+nim = { symbol = " ", style = "yellow", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+nix_shell = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[$state( \($name\))](bright-black)[\]](frame)' }
+nodejs = { style = "green", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+ocaml = { symbol = " ", style = "yellow", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+odin = { symbol = "󰟢 ", style = "blue", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+opa = { symbol = " ", style = "cyan", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+perl = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+php = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+pixi = { symbol = "󰏗 ", style = "yellow", format = '[─\[](frame)[$symbol]($style)[($version)( \($environment\))](bright-black)[\]](frame)' }
+pulumi = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($username@)$stack](bright-black)[\]](frame)' }
+purescript = { symbol = " ", style = "black", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+quarto = { style = "cyan", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+raku = { symbol = "󱖊 ", style = "purple", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+red = { symbol = "󱍼 ", style = "red", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+rlang = { symbol = "󰟔 ", style = "blue", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+ruby = { symbol = " ", style = "red", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+rust = { symbol = "󱘗 ", style = "yellow", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+scala = { symbol = " ", style = "red", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+solidity = { symbol = " ", style = "black", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+spack = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[$environment](bright-black)[\]](frame)' }
+swift = { symbol = " ", style = "yellow", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+terraform = { symbol = " ", style = "purple", format = '[─\[](frame)[$symbol]($style)[$workspace](bright-black)[\]](frame)' }
+typst = { symbol = " ", style = "cyan", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+vagrant = { symbol = " ", style = "cyan", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+vlang = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+xmake = { symbol = " ", style = "green", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+zig = { symbol = " ", style = "yellow", format = '[─\[](frame)[$symbol]($style)[($version)](bright-black)[\]](frame)' }
+
+# Global state rather than the project: cloud accounts and contexts, and the container or
+# network namespace the shell runs in. They show in every directory while set. azure,
+# kubernetes and nats stay disabled, as in starship's defaults.
+aws = { symbol = " ", style = "yellow", format = '[─\[](frame)[$symbol]($style)[($profile)( \($region\))( \[$duration\])](bright-black)[\]](frame)' }
+azure = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[$subscription](bright-black)[\]](frame)' }
+gcloud = { symbol = "󱇶 ", style = "blue", format = '[─\[](frame)[$symbol]($style)[$account(@$domain)( \($region\))](bright-black)[\]](frame)' }
+kubernetes = { symbol = "󱃾 ", style = "blue", format = '[─\[](frame)[$symbol]($style)[$context( \($namespace\))](bright-black)[\]](frame)' }
+openstack = { symbol = " ", style = "red", format = '[─\[](frame)[$symbol]($style)[$cloud( \($project\))](bright-black)[\]](frame)' }
+nats = { symbol = " ", style = "cyan", format = '[─\[](frame)[$symbol]($style)[$name](bright-black)[\]](frame)' }
+container = { symbol = " ", style = "red", format = '[─\[](frame)[$symbol]($style)[$name](bright-black)[\]](frame)' }
+singularity = { symbol = " ", style = "blue", format = '[─\[](frame)[$symbol]($style)[$env](bright-black)[\]](frame)' }
+netns = { symbol = "󰛳 ", style = "blue", format = '[─\[](frame)[$symbol]($style)[$name](bright-black)[\]](frame)' }
+
+[palettes.dayfox]
+frame = "#aab0ad" # Dayfox border color
+
 [directory]
+format = "[$path]($style)[$read_only]($read_only_style)"
 style = "blue"
 
 [git_branch]
@@ -21,11 +112,11 @@ format = "[$branch]($style)"
 style = "bright-black"
 
 [git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
+format = ' \([$state( $progress_current/$progress_total)]($style)\)'
 style = "bright-black"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)( $ahead_behind$stashed)]($style)"
 style = "cyan"
 # The six values below are a zero-width space (U+200B), not empty strings: each kind of
 # change renders nothing itself, but makes the (...) group non-empty, so any change
@@ -39,20 +130,30 @@ deleted = "​"
 stashed = "≡"
 
 [cmd_duration]
-format = "[$duration]($style) "
+format = '[─\[](frame)[$duration]($style)[\]](frame)'
 style = "yellow"
 
+[fill]
+symbol = "─"
+style = "frame"
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "bold italic green"
+
 [battery]
-format = "[$symbol]($style)"
-discharging_symbol = "󰁹 "
-charging_symbol = "󰂄 "
-unknown_symbol = "󰚥 "
-full_symbol = "󰚥 "
+format = " [$symbol]($style)"
+discharging_symbol = "󰁹"
+unknown_symbol = "󰚥"
+full_symbol = "󰚥"
+charging_symbol = "󰂄"
+empty_symbol = "󰂎"
 
 [[battery.display]]
 threshold = 20
 style = "bold red"
-discharging_symbol = "󰂃 "
+discharging_symbol = "󰂃"
 
 [[battery.display]]
 threshold = 60
@@ -62,14 +163,23 @@ style = "bold yellow"
 threshold = 100
 style = "bold green"
 
-# Only shows the active virtualenv; never triggers on project files.
+# Shown when the current directory is a Python project root, or a venv is active.
+# The project's .venv comes first, so the version is the project's even when the venv
+# isn't activated (plain `python` would be uv's global default).
 [python]
-format = "[$virtualenv]($style) "
-style = "bright-black"
+symbol = " "
+format = '[─\[](frame)[$symbol]($style)[($version)( \($virtualenv\))](bright-black)[\]](frame)'
+style = "blue"
 detect_extensions = []
-detect_files = []
+detect_files = [".python-version", "pyproject.toml", "requirements.txt"]
+python_binary = [".venv/bin/python", "python", "python3"]
+
+[username]
+format = "[$user]($style)"
+
+[hostname]
+format = "[@$hostname]($style)"
 
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
