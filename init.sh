@@ -14,11 +14,13 @@ FISH_LOCAL="$HOME/.config/fish.local.fish"
 GIT_LOCAL="$HOME/.gitconfig.local"
 
 # Static single-file builds for Linux machines without root or with an old glibc
-# (musl builds; fish 4 ships its own static build). Bump versions here.
+# (musl builds; fish 4 ships its own static build). Bump versions here; upall then
+# reinstalls the ones already in ~/.local/bin.
 FISH_VERSION=4.9.3
 RG_VERSION=15.2.0
 FD_VERSION=10.5.0
 BAT_VERSION=0.26.1
+STARSHIP_VERSION=1.27.0
 
 # Oldest fish the configs work with (`command -q` needs 3.1)
 FISH_MIN_VERSION=3.1
@@ -287,6 +289,7 @@ install_static_tool() {
         rg)   url="https://github.com/BurntSushi/ripgrep/releases/download/$RG_VERSION/ripgrep-$RG_VERSION-$arch-unknown-linux-musl.tar.gz" ;;
         fd)   url="https://github.com/sharkdp/fd/releases/download/v$FD_VERSION/fd-v$FD_VERSION-$arch-unknown-linux-musl.tar.gz" ;;
         bat)  url="https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat-v$BAT_VERSION-$arch-unknown-linux-musl.tar.gz" ;;
+        starship) url="https://github.com/starship/starship/releases/download/v$STARSHIP_VERSION/starship-$arch-unknown-linux-musl.tar.gz" ;;
         *)
             log warn "No static build configured for $tool; use the system package or ask the admin"
             return 0
@@ -310,6 +313,36 @@ install_static_tool() {
     fi
     rm -rf "$tmp"
     log info "Installed $LOCAL_BIN/$tool"
+}
+
+# Version of a static build in ~/.local/bin; empty if there is none. Symlinks are
+# skipped: those are fdfind/batcat from link_debian_names.
+static_tool_version() {
+    local bin="$LOCAL_BIN/$1"
+    [[ -x $bin && ! -L $bin ]] || return 0
+    case $1 in
+        fish) "$bin" --version | awk 'NR == 1 {print $NF}' ;;  # fish, version 4.9.3
+        *)    "$bin" --version | awk 'NR == 1 {print $2}' ;;   # rg 15.2.0 (rev ...)
+    esac
+}
+
+# Called by upall: reinstall the static builds whose version differs from the pins above
+update_static_tools() {
+    local tool current pinned var found=0
+    for tool in fish rg fd bat starship; do
+        current=$(static_tool_version "$tool")
+        [[ -n $current ]] || continue
+        found=1
+        var="${tool^^}_VERSION"
+        pinned=${!var}
+        if [[ $current == "$pinned" ]]; then
+            log info "$tool $current is up to date"
+        else
+            log info "Updating $tool $current -> $pinned"
+            install_static_tool "$tool" || true
+        fi
+    done
+    (( found )) || log info "No static builds in $LOCAL_BIN"
 }
 
 setup_linux_tools() {
@@ -351,6 +384,15 @@ setup_linux_tools() {
     done
 }
 
+# Optional: starship runs git status for every prompt, slow when $HOME is on a network
+# filesystem. Without it fish's own prompt is used.
+offer_starship_on_linux() {
+    command -v starship &> /dev/null && return 0
+    if confirm "Install starship (prompt) into $LOCAL_BIN? Skip it if \$HOME is on a network filesystem"; then
+        install_static_tool starship
+    fi
+}
+
 # Ghostty sets TERM=xterm-ghostty, which older servers don't know. Check it explicitly:
 # over a non-interactive ssh command TERM is "dumb" and says nothing.
 check_terminfo() {
@@ -375,6 +417,7 @@ link_nvim_on_linux() {
 
 setup_linux() {
     setup_linux_tools
+    offer_starship_on_linux
     link_nvim_on_linux
     check_terminfo
     log info "Login shell stays bash; ~/.bash_profile switches interactive sessions to fish (no chsh needed)"
@@ -382,10 +425,25 @@ setup_linux() {
 
 # ---------- Both ----------
 
+# Generated once instead of at every fish start; upall regenerates them after updates.
+# fish's own config dir (gitignored), since older fish (3.1) doesn't look in
+# ~/.local/share/fish/vendor_completions.d
+write_uv_completions() {
+    local dir="$HOME/.config/fish/completions"
+    mkdir -p "$dir"
+    "$LOCAL_BIN/uv" generate-shell-completion fish > "$dir/uv.fish"
+    "$LOCAL_BIN/uvx" --generate-shell-completion fish > "$dir/uvx.fish"
+    log info "uv completions written to $dir"
+}
+
 setup_optional_tools() {
     if [[ ! -x "$LOCAL_BIN/uv" ]] && confirm "Install uv (python package manager)?"; then
         curl -LsSf https://astral.sh/uv/install.sh | env UV_NO_MODIFY_PATH=1 sh
         log info "uv installation completed!"
+    fi
+    # Also for a uv installed before the completions were generated here
+    if [[ -x "$LOCAL_BIN/uv" ]]; then
+        write_uv_completions
     fi
 
     if [[ ! -x "$HOME/.cargo/bin/rustup" ]] && confirm "Install rustup (rust manager)?"; then

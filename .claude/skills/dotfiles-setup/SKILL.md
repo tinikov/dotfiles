@@ -76,7 +76,7 @@ ls -la ~/.bash_profile ~/.bashrc ~/.profile ~/.config/fish ~/.tmux.conf ~/.vimrc
 - **macOS**：用 Homebrew，先装 `Brewfile`，`Brewfile.extra` 按用户意愿装。LS_COLORS 需要 GNU ls，所以要有 `coreutils`（已在 Brewfile 里）。
 - **普通 Linux（有 root，有包管理器）**：用一条包管理器命令装齐 `git fish tmux ripgrep fd bat`。Debian/Ubuntu 上 fd、bat 的命令名是 `fdfind`、`batcat`，`link_debian_names` 会在 `~/.local/bin` 里建好同名链接。RHEL 系需要先启用 EPEL。配置要求 fish 3.1 以上，系统自带的版本太旧时改用静态版。
 - **受限 Linux（没有 root、glibc 旧，典型是 HPC 登录节点）**：把单文件程序装到 `~/.local/bin`（`install_static_tool`）。fish 用官方静态版；rg、fd、bat 用 musl 版，不依赖系统 glibc。版本号写在 `init.sh` 开头。git 和 tmux 用系统自带的。
-  - 家目录在网络文件系统上时，不建议装 starship（每次显示提示符都要查 git 状态）和 AstroNvim（插件多、小文件多、配额小）。用 vim 和 `vimrc` 就够了。真的需要 nvim 时，glibc 2.28 这类旧系统要用 `neovim/neovim-releases` 仓库提供的 glibc 2.17 版本，并为它写一份不带插件的轻量配置。
+  - starship 在 Linux 上是可选项：`init.sh` 会单独询问，装的是 musl 静态版（`install_static_tool starship`），不装就用 fish 自带的提示符。家目录在网络文件系统上时，不建议装 starship（每次显示提示符都要查 git 状态）和 AstroNvim（插件多、小文件多、配额小）。用 vim 和 `vimrc` 就够了。真的需要 nvim 时，glibc 2.28 这类旧系统要用 `neovim/neovim-releases` 仓库提供的 glibc 2.17 版本，并为它写一份不带插件的轻量配置。
   - `module load` 放在 `~/.bashrc` 里，加载后的环境变量会被 fish 继承。但 `module` 命令本身是 bash 函数，fish 里要用的话，需要在 `fish.local.fish` 里 source `$MODULESHOME/init/fish`（见 `examples/fish.local.fish`）。
   - 已有的 `~/.bashrc` 里如果有 `exec fish`，要删掉（先问用户）：`bash_profile` 已经负责切换，而旧代码没有排除 `bash -ilc 命令` 这种调用，会把命令吞掉。
 

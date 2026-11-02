@@ -13,9 +13,9 @@ Then restart the terminal.
 
 `init.sh` symlinks the configs into place — anything already there, including a link pointing elsewhere, is moved to `~/.dotfiles_backup` — and asks before every install:
 
-- **Both:** bash_profile, git, fish, starship, tmux, vim. Optional uv and rustup.
+- **Both:** bash_profile, git, fish, starship, tmux, vim. Optional uv (plus its fish completions) and rustup.
 - **macOS:** also ghostty and nvim; offers Homebrew, `Brewfile` (base apps), `Brewfile.extra` (optional apps), and brew's bash as the login shell (macOS defaults to zsh).
-- **Linux:** installs missing `git fish tmux rg fd bat` with the package manager (sudo), or, without root, downloads static builds of fish/rg/fd/bat into `~/.local/bin`. Asks before linking the nvim config. Warns if terminfo for `xterm-ghostty` is missing; fix it from the Mac with `infocmp -x xterm-ghostty | ssh <host> -- tic -x -`.
+- **Linux:** installs missing `git fish tmux rg fd bat` with the package manager (sudo), or, without root, downloads static builds of fish/rg/fd/bat into `~/.local/bin`. Offers a static starship there too (skip it when `$HOME` is on a network filesystem; fish's own prompt is used then). Asks before linking the nvim config. Warns if terminfo for `xterm-ghostty` is missing; fix it from the Mac with `infocmp -x xterm-ghostty | ssh <host> -- tic -x -`.
 
 The git identity is asked for after the installs, so a fresh Linux box has git by then.
 

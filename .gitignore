@@ -4,3 +4,7 @@
 # fish writes its state into the linked config dir
 /config/fish/fish_variables
 /config/fish/conf.d/fish_frozen_*.fish
+
+# Generated per machine by init.sh and upall
+/config/fish/completions/uv.fish
+/config/fish/completions/uvx.fish

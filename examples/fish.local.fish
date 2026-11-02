@@ -18,10 +18,4 @@
 # end
 
 # ---------- macOS ----------
-# Overrides of the shared config, e.g. another proxy port than aliases.fish uses
-# function proxy-on
-#     set -l port 7897
-#     set -gx https_proxy http://127.0.0.1:$port
-#     set -gx http_proxy http://127.0.0.1:$port
-#     set -gx all_proxy socks5://127.0.0.1:$port
-# end
+# Usually nothing: the shared config already covers macOS.
